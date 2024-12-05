@@ -21,10 +21,9 @@ data "vault_kv_secret_v2" "example" {
   name  = "database/dev"
 }
 
-output "secret_output" {
+output "secret_output_version" {
   description = "OpenID Claims for trust relationship"
-  sensitive = true
-  value       = data.vault_kv_secret_v2.example.data
+  value       = data.vault_kv_secret_v2.example.version
 }
 
 
