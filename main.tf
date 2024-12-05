@@ -8,15 +8,10 @@ terraform {
   }
 }
 
-variable token_val {
-    type        = string
-    description = "value of token"
-}
 
 provider "vault" {
 
     address = "https://vault-cluster-public-vault-0e71c1ed.94ac93b5.z1.hashicorp.cloud:8200"
-    token =    variable.token_val
     namespace = admin
 }
 
