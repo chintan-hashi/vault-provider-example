@@ -22,9 +22,17 @@ data "vault_kv_secret_v2" "example" {
 }
 
 output "secret_output_version" {
-  description = "OpenID Claims for trust relationship"
+  description = "secret version"
   value       = data.vault_kv_secret_v2.example.version
 }
 
+resource "vault_policy" "example" {
+  name = "dev-team"
 
+  policy = <<EOT
+path "secret/my_app" {
+  capabilities = ["update"]
+}
+EOT
+}
 
