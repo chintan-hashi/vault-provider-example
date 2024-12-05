@@ -23,6 +23,7 @@ data "vault_kv_secret_v2" "example" {
 
 output "secret_output" {
   description = "OpenID Claims for trust relationship"
+  sensitive = true
   value       = data.vault_kv_secret_v2.example.data
 }
 
